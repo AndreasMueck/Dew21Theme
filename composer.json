@@ -2,6 +2,7 @@
   "name": "wak/dew21theme",
   "description": "DEW21 Theme by WAK",
   "type": "shopware-platform-plugin",
+  "version": "1.0.0",
   "authors": [
     {
         "name": "WAK Full-Service-Agentur",
