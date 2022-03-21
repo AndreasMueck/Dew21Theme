@@ -1,0 +1,26 @@
+{
+  "name": "wak/dew21theme",
+  "description": "DEW21 Theme by WAK",
+  "type": "shopware-platform-plugin",
+  "authors": [
+    {
+        "name": "WAK Full-Service-Agentur",
+        "email": "info@wak-online.de",
+        "homepage": "https://wak-online.de",
+        "role": "Developer"
+    }
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Dew21Theme\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Dew21Theme\\Dew21Theme",
+    "label": {
+      "de-DE": "Theme Dew21Theme plugin",
+      "en-GB": "Theme Dew21Theme plugin"
+    }
+  }
+}
