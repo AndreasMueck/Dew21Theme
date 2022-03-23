@@ -213,7 +213,7 @@
           "de-DE": "Kaufen-Button"
         },
         "type": "color",
-        "value": "#aa0000",
+        "value": "#0864a1",
         "editable": true,
         "block": "eCommerce",
         "order": 200
