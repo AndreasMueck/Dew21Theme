@@ -1,0 +1,34 @@
+footer {
+    background-color: $sw-color-brand-primary;
+    color: $body-bg;
+}
+
+.footer-column-headline, .footer-contact-hotline a, .footer-link, footer a {
+    color: $body-bg;
+}
+
+.footer-contact-hotline a, .footer-link, footer a {
+    &:hover {
+        color:$sw-color-brand-secondary;
+    }
+}
+
+.footer-contact-form a {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    background-color: $sw-color-brand-secondary;
+    color: $sw-color-brand-primary;
+    //border-top: 1px solid #000;
+}
+
+.footer-vat p {
+    margin-bottom:0;
+
+    a {
+        color: $sw-color-brand-primary!important;
+        text-decoration: underline;
+    }
+}
+
