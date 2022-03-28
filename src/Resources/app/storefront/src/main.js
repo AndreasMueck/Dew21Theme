@@ -1,2 +1,0 @@
-import './mobile/wak-test';
-
