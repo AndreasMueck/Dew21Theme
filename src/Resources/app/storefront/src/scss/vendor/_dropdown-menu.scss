@@ -1,0 +1,25 @@
+.main-navigation-wrapper-dropdown .main-navigation .dropdown > .dropdown-menu {
+    padding:0;
+    box-shadow:none;
+}
+
+.main-navigation-wrapper-dropdown .dropdown-menu .main-navigation-link {
+    background-color: $sw-color-brand-primary;
+    padding:0.75rem!important;
+
+    + .main-navigation-link {
+        margin-top:1px;
+    }
+
+    &:hover {
+        background-color: $sw-color-brand-secondary;
+
+        .main-navigation-link-text {
+            color: $sw-color-brand-primary!important;
+        }
+    }
+}
+
+.main-navigation-wrapper-dropdown .dropdown-menu .main-navigation-link-text {
+    color: $sw-background-color!important;
+}
