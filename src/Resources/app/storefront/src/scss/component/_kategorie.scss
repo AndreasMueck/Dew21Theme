@@ -1,0 +1,14 @@
+.kategorie {
+    &__produktuebersicht {
+        margin-left:-20px;
+        margin-right:-20px;
+        .cms-block-container {
+            padding-top:1.5rem!important;
+            padding-bottom:1.5rem!important;
+            @include media-breakpoint-up(lg) {
+                padding-top:3rem!important;
+                padding-bottom:3rem!important;
+            }
+        }
+    }
+}

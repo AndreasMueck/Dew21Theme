@@ -1,0 +1,9 @@
+.navigation-offcanvas-headline {
+    color: $sw-color-brand-primary;
+}
+
+.navigation-offcanvas-link {
+    &.is-back-link {
+        color: $sw-color-brand-primary;
+    }
+}

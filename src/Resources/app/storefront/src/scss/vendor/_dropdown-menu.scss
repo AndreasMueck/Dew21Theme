@@ -1,25 +1,102 @@
+.main-navigation-wrapper-dropdown .main-navigation .main-navigation-link .main-navigation-link-text .icon svg {
+    color: inherit !important;
+}
+
 .main-navigation-wrapper-dropdown .main-navigation .dropdown > .dropdown-menu {
     padding:0;
     box-shadow:none;
 }
 
+.main-navigation-wrapper-dropdown .main-navigation .main-navigation-link.active > .main-navigation-link-text {
+    font-weight: inherit;
+}
+
+.main-navigation-wrapper-dropdown .main-navigation .main-navigation-menu > .main-navigation-link {
+    display: flex;
+    align-items: center;
+    padding:0;
+    margin-right:0.75rem;
+
+    &:hover {
+        .main-navigation-link-text {
+            color:$sw-color-brand-secondary;
+        }
+    }
+
+    &.active, &:hover {
+        background-color: lighten($sw-color-brand-secondary, 3);
+
+        .main-navigation-link-text, .main-navigation-link-text .icon {
+            color:$sw-color-brand-primary;
+        }
+    }
+
+    &.active {
+        &:before {
+            content:'';
+            height:3px;
+            background-color:$sw-color-brand-primary;
+            position: absolute;
+            left:0;
+            right:0;
+            top:0;
+        }
+    }
+}
+
+// .main-navigation-wrapper-dropdown .main-navigation .main-navigation-menu > .main-navigation-link.active:hover > .main-navigation-link-text.active {
+
+//     @include media-breakpoint-up(lg) {
+//         color:$sw-color-brand-secondary;
+
+//         .icon {
+//             color:$sw-color-brand-secondary;
+//         }
+//     }
+// }
+
+.main-navigation-wrapper-dropdown .main-navigation .main-navigation-menu > .main-navigation-link  {
+    > .main-navigation-link-text {
+        padding:0.5rem 0.75rem;
+    }
+
+    &:first-child {
+        margin-right:1.25rem;
+        &:hover, &.active {
+            background:inherit;
+        }
+        > .main-navigation-link-text {
+            padding-left:0;
+            padding-right:0;
+        }
+    }
+}
+
+
+
+
+
 .main-navigation-wrapper-dropdown .dropdown-menu .main-navigation-link {
-    background-color: $sw-color-brand-primary;
-    padding:0.75rem!important;
+    background-color: lighten($sw-color-brand-secondary, 3);
+    padding:0;
 
     + .main-navigation-link {
         margin-top:1px;
+    }
+
+    .main-navigation-link-text {
+        padding:0.75rem;
     }
 
     &:hover {
         background-color: $sw-color-brand-secondary;
 
         .main-navigation-link-text {
-            color: $sw-color-brand-primary!important;
+
         }
     }
 }
 
-.main-navigation-wrapper-dropdown .dropdown-menu .main-navigation-link-text {
-    color: $sw-background-color!important;
-}
+// .main-navigation-wrapper-dropdown .dropdown-menu .main-navigation-link-text {
+//     color: $sw-background-color!important;
+// }
