@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+
+
+{% block layout_main_navigation_menu_home %}
+    {% if context.salesChannel.translated.homeEnabled %}
+        <a class="nav-link main-navigation-link{% if controllerAction is same as('home') %} active{% endif %} home-link"
+            href="{{ path('frontend.home.page') }}"
+            itemprop="url"
+            title="{{ homeLabel|striptags }}">
+            <div class="main-navigation-link-text">
+                <span itemprop="name">{% sw_icon 'home' style {
+                    'namespace': 'Dew21Theme'
+                } %}</span>
+            </div>
+        </a>
+    {% endif %}
+{% endblock %}

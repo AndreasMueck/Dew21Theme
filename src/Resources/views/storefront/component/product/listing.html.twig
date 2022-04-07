@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/product/listing.html.twig' %}
+
+{# Zeig Container nur wenn gefüllt #}
+
+ {# {% block element_product_listing_pagination_nav_actions %}
+
+
+    {% if element_product_listing_pagination_nav_actions %}
+        dddd
+        {{ parent() }}
+
+
+    {% endif %}
+
+{% endblock %} #}
+
+
+
+
+{# {% block element_product_listing_pagination_nav_top %}
+
+    {{ parent() }}
+
+{% endblock %} #}
+
+
+{% block element_product_listing_pagination_nav_top %}
+    <h1 itemprop="name" class="section-title">
+        {{page.header.navigation.active.name}}
+    </h1>
+    {{parent()}}
+{% endblock %}

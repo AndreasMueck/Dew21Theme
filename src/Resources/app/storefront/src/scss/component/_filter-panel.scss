@@ -1,0 +1,16 @@
+.filter-panel {
+    margin-bottom: 0;    
+    padding:1rem;
+
+    @include media-breakpoint-up(lg) {
+        background-color: var(--light);
+    }
+}
+
+.filter-panel-items-container {
+    margin-bottom:-12px;
+}
+
+.filter-panel-item {    
+    background-color: $sw-background-color;
+}

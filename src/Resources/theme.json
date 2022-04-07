@@ -81,7 +81,7 @@
           "de-DE": "Sekundärfarbe"
         },
         "type": "color",
-        "value": "#abaca8",
+        "value": "#ABACA8",
         "editable": true,
         "block": "themeColors",
         "order": 200
@@ -298,6 +298,20 @@
         "editable": true,
         "block": "media",
         "order": 500
+      },
+      "emz-nav-dropdown": {
+        "label": {
+            "en-GB": "Flyout/Dropdown",
+            "de-DE": "Flyout/Dropdown"
+        },
+        "type": "switch",
+        "value": true,
+        "editable": true,
+        "block": "emz-nav-settings",
+        "helpText": {
+            "en-GB": "Switch between Dropdown Navigation and Flyout Navigation",
+            "de-DE": "Zwischen Dropdown Navigation und Flyout Navigation Wechseln"
+        }
       }
     }
   }
