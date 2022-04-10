@@ -1,0 +1,48 @@
+.product-box {
+    box-shadow: 0px 6px 15px 0px rgb(0 0 0 / 18%);
+}
+
+.product-badges {
+    top:0;
+    left:0;
+    right:0;
+
+    .badge {
+        border-radius:0;
+        box-sizing:border-box;
+    }
+
+    .badge-rental {
+        font-size: 0.8em;
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        background-color:$sw-color-brand-primary;
+        color:#fff;
+        font-weight: inherit;
+        text-transform: uppercase;
+        padding:0.3rem 0;
+        height:auto;
+        line-height: 1;
+        letter-spacing: 0.05em;
+    }
+
+    .badge-new {
+        background-color: $sw-color-buy-button;
+        height:100%;
+        border-radius:100%;
+        width:2.5em;
+        height:2.5em;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        left:-$spacer*0.5;
+        top:-$spacer*0.5;
+        position:absolute;
+        z-index: 10;
+        transform: rotate(-15deg);
+
+    }
+}
+

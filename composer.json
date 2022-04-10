@@ -11,6 +11,9 @@
         "role": "Developer"
     }
   ],
+  "require": {
+    "shopware/core": "*"
+  },
   "license": "MIT",
   "autoload": {
     "psr-4": {

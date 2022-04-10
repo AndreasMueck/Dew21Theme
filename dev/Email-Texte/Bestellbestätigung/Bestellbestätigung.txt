@@ -1,0 +1,73 @@
+{% set currencyIsoCode = order.currency.isoCode %}
+{% if order.orderCustomer.salutation %}{{ order.orderCustomer.salutation.translated.letterName ~ ' ' }}{% endif %}{{ order.orderCustomer.firstName }} {{ order.orderCustomer.lastName }},
+
+Ihre Bestellung ist am {{ order.orderDateTime|format_datetime('medium', 'short', locale='de-DE') }} bei uns eingegangen.
+
+Bestellnummer: {{ order.orderNumber }}
+
+Den aktuellen Status Ihrer Bestellung können Sie jederzeit über diesen Link abrufen:
+{{ rawUrl('frontend.account.order.single.page', { 'deepLinkCode': order.deepLinkCode }, salesChannel.domains|first.url) }}
+
+Für Rückfragen stehen wir Ihnen jederzeit gerne zur Verfügung. 
+
+Informationen zu Ihrer Bestellung:
+
+{% for lineItem in order.lineItems %}
+Position:       {{ loop.index }}
+Artikelnummer:  {% if lineItem.payload.productNumber is defined %}{{ lineItem.payload.productNumber|u.wordwrap(80) }}{% endif %}
+
+Beschreibung:   {{ lineItem.label|u.wordwrap(80) }}{% if lineItem.payload.options is defined and lineItem.payload.options|length >= 1 %},{% for option in lineItem.payload.options %}{{ option.group }}: {{ option.option }}{% if lineItem.payload.options|last != option %}{{ " | " }}{% endif %}{% endfor %}{% endif %}{% if lineItem.payload.features is defined and lineItem.payload.features|length >= 1 %}{% set referencePriceFeatures = lineItem.payload.features|filter(feature => feature.type == 'referencePrice') %}{% if referencePriceFeatures|length >= 1 %}{% set referencePriceFeature = referencePriceFeatures|first %}, {{ referencePriceFeature.value.purchaseUnit }}{{ referencePriceFeature.value.unitName }}({{ referencePriceFeature.value.price|currency(currencyIsoCode) }}* / {{ referencePriceFeature.value.referenceUnit }} {{ referencePriceFeature.value.unitName }}){% endif %}{% endif %}
+
+{% if lineItem.payload.rentalProduct is defined %}{{ "rhiem-rental-products.rentPeriod"|trans|striptags }}:   {{ lineItem.payload.rentalProduct.rhiem_rental_products_rent_start|date("d.m.Y", false) }} - {{ lineItem.payload.rentalProduct.rhiem_rental_products_rent_end|date("d.m.Y", false) }}{% endif %}
+
+Menge:          {{ lineItem.quantity }}
+Preis:          {{ lineItem.unitPrice|currency(currencyIsoCode) }}
+Summe:          {{ lineItem.totalPrice|currency(currencyIsoCode) }}
+
+{% endfor %}
+
+{% set delivery = order.deliveries.first %}
+
+{% set displayRounded = order.totalRounding.interval != 0.01 or order.totalRounding.decimals != order.itemRounding.decimals %}
+{% set decimals = order.totalRounding.decimals %}
+{% set total = order.price.totalPrice %}
+{% if displayRounded %}
+    {% set total = order.price.rawTotal %}
+    {% set decimals = order.itemRounding.decimals %}
+{% endif %}
+
+{% for shippingCost in order.deliveries %}
+Versandkosten: {{ shippingCost.shippingCosts.totalPrice|currency(currencyIsoCode) }}
+{% endfor %}
+Gesamtkosten Netto: {{ order.amountNet|currency(currencyIsoCode) }}
+{% for calculatedTax in order.price.calculatedTaxes %}
+{% if order.taxStatus is same as('net') %}zzgl.{% else %}inkl.{% endif %} {{ calculatedTax.taxRate }}% MwSt. {{ calculatedTax.tax|currency(currencyIsoCode) }}
+{% endfor %}
+Gesamtkosten Brutto: {{ total|currency(currencyIsoCode,decimals=decimals) }}
+{% if displayRounded %}
+Gesamtkosten Brutto gerundet: {{ order.price.totalPrice|currency(currencyIsoCode,decimals=order.totalRounding.decimals) }}
+{% endif %}
+
+Gewählte Versandart: {{ delivery.shippingMethod.translated.name }}
+{{ delivery.shippingMethod.translated.description }}
+
+{% set billingAddress = order.addresses.get(order.billingAddressId) %}
+Rechnungsadresse:
+{{ billingAddress.company }}
+{{ billingAddress.firstName }} {{ billingAddress.lastName }}
+{{ billingAddress.street }}
+{{ billingAddress.zipcode }} {{ billingAddress.city }}
+{{ billingAddress.country.translated.name }}
+
+Lieferadresse:
+{{ delivery.shippingOrderAddress.company }}
+{{ delivery.shippingOrderAddress.firstName }} {{ delivery.shippingOrderAddress.lastName }}
+{{ delivery.shippingOrderAddress.street }}
+{{ delivery.shippingOrderAddress.zipcode}} {{ delivery.shippingOrderAddress.city }}
+{{ delivery.shippingOrderAddress.country.translated.name }}
+
+{% if order.orderCustomer.vatIds %}
+Ihre Umsatzsteuer-ID: {{ order.orderCustomer.vatIds|first }}
+Bei erfolgreicher Prüfung und sofern Sie aus dem EU-Ausland
+bestellen, erhalten Sie Ihre Ware umsatzsteuerbefreit.
+{% endif %}

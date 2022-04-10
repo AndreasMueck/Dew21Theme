@@ -1,0 +1,7 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/description.html.twig' %}
+
+{% block page_product_detail_description_title %}
+    <div class="h3 product-detail-description-title">
+        {{ "detail.descriptionTitle"|trans|sw_sanitize }} „{{ page.product.translated.name }}“
+    </div>
+{% endblock %}

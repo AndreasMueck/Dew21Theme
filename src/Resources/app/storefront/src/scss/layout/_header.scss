@@ -1,0 +1,56 @@
+.header-main {
+    .icon {
+        color: $sw-color-brand-primary;
+    }
+
+    /*
+    .account-menu-btn {
+        padding: 0;
+        width: 3em;
+        height: 3em;
+        border-radius: 100%;
+        background-color: $sw-color-brand-primary;
+
+        .icon {
+            color:$sw-color-brand-secondary;
+        }
+    } */
+
+}
+
+
+.header-logo-col {
+    padding-bottom:0;
+}
+
+.header-logo-picture {
+    height:1.5rem;
+
+    img {
+        height:100%;
+        width:auto;
+    }
+}
+
+.header-row {
+    padding-bottom:0;
+    @include media-breakpoint-up(lg) {
+        padding-bottom: $spacer;
+    }
+}
+
+
+.header-actions-col, .header-search-col {
+
+    background-color: $sw-color-brand-secondary;
+
+    @include media-breakpoint-up(sm) {
+        padding: 0.5rem 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+        background-color: transparent;
+    }
+}
+
