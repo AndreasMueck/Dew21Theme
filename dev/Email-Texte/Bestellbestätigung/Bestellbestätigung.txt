@@ -18,11 +18,12 @@ Artikelnummer:  {% if lineItem.payload.productNumber is defined %}{{ lineItem.pa
 
 Beschreibung:   {{ lineItem.label|u.wordwrap(80) }}{% if lineItem.payload.options is defined and lineItem.payload.options|length >= 1 %},{% for option in lineItem.payload.options %}{{ option.group }}: {{ option.option }}{% if lineItem.payload.options|last != option %}{{ " | " }}{% endif %}{% endfor %}{% endif %}{% if lineItem.payload.features is defined and lineItem.payload.features|length >= 1 %}{% set referencePriceFeatures = lineItem.payload.features|filter(feature => feature.type == 'referencePrice') %}{% if referencePriceFeatures|length >= 1 %}{% set referencePriceFeature = referencePriceFeatures|first %}, {{ referencePriceFeature.value.purchaseUnit }}{{ referencePriceFeature.value.unitName }}({{ referencePriceFeature.value.price|currency(currencyIsoCode) }}* / {{ referencePriceFeature.value.referenceUnit }} {{ referencePriceFeature.value.unitName }}){% endif %}{% endif %}
 
-{% if lineItem.payload.rentalProduct is defined %}{{ "rhiem-rental-products.rentPeriod"|trans|striptags }}:   {{ lineItem.payload.rentalProduct.rhiem_rental_products_rent_start|date("d.m.Y", false) }} - {{ lineItem.payload.rentalProduct.rhiem_rental_products_rent_end|date("d.m.Y", false) }}{% endif %}
-
 Menge:          {{ lineItem.quantity }}
 Preis:          {{ lineItem.unitPrice|currency(currencyIsoCode) }}
 Summe:          {{ lineItem.totalPrice|currency(currencyIsoCode) }}
+
+{% if lineItem.payload.rentalProduct is defined %}{{ "rhiem-rental-products.rentPeriod"|trans|striptags }}:   {{ lineItem.payload.rentalProduct.rhiem_rental_products_rent_start|date("d.m.Y", false) }} - {{ lineItem.payload.rentalProduct.rhiem_rental_products_rent_end|date("d.m.Y", false) }}{% endif %}
+
 
 {% endfor %}
 
