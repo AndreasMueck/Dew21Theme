@@ -1,3 +1,15 @@
 .btn-lg, .btn-buy, .btn-group-lg > .btn, .btn {
     border-radius:0;
 }
+
+.btn-primary {
+    background-color: $sw-color-buy-button;
+    border-color: $sw-color-buy-button;
+    color:$sw-color-buy-button-text;
+
+    &:not(:disabled):not(.disabled):hover, &:not(:disabled):not(.disabled):active {
+        background-color: $sw-color-buy-button;
+        border-color: $sw-color-buy-button;
+        color:$sw-color-buy-button-text;
+    }
+}
