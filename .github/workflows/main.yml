@@ -1,9 +1,5 @@
 on: push
-<<<<<<< HEAD
-name: 🚀 Deploy website on push
-=======
-name: 🚀 Stelle das Template nach Push auf Server bereit
->>>>>>> a73824f9a24cbc26887fde57d555cbd2dba8c0d4
+name: 🚀 Stelle das Template nach Repository-Push per FTP auf Server bereit
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -11,17 +7,10 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
-<<<<<<< HEAD
-    
-=======
->>>>>>> a73824f9a24cbc26887fde57d555cbd2dba8c0d4
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: w0197b03.kasserver.com
         username: w0197b03
-<<<<<<< HEAD
         password: ${{ secrets.FTP_PASSWORD }}
-=======
-        password: ${{ secrets.FTP_PASSWORD }}
->>>>>>> a73824f9a24cbc26887fde57d555cbd2dba8c0d4
+        server-dir: shopware/custom/plugins/Dew21Theme/
