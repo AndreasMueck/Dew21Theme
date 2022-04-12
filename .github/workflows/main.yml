@@ -1,0 +1,16 @@
+on: push
+name: 🚀 Stelle das Template nach Repository-Push per FTP auf Server bereit
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: w0197b03.kasserver.com
+        username: w0197b03
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: shopware/custom/plugins/Dew21Theme/
