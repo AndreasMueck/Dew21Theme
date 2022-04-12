@@ -24,3 +24,11 @@ jobs:
             **/node_modules/**
             **/.vscode*
             **/dev*
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: whoami
