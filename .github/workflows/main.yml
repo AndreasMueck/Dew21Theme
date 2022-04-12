@@ -7,12 +7,14 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout des letzten Codestands für diese Action
-      uses: actions/checkout@v2
-    - name: Syncronisiere Dateien github <-> shopware
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      with:
-        server: w0197b03.kasserver.com
-        username: w0197b03
-        password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: shopware/custom/plugins/Dew21Theme/
+    
+      - name: Checkout des letzten Codestands für diese Action
+        uses: actions/checkout@v2
+
+      - name: Syncronisiere Dateien github <-> shopware
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: w0197b03.kasserver.com
+          username: w0197b03
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: shopware/custom/plugins/Dew21Theme/
