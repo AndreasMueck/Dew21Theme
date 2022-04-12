@@ -4,12 +4,12 @@ on:
     branches: [ master ]
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Checkout des letzten Codestands für diese Action
+    - name: Checkout des letzten Codestands für diese Action
       uses: actions/checkout@v2
-    - name: 📂 Syncronisiere Dateien github <-> shopware
+    - name: Syncronisiere Dateien github <-> shopware
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: w0197b03.kasserver.com
