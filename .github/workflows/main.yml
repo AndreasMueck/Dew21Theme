@@ -18,3 +18,9 @@ jobs:
           username: w0197b03
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: shopware/custom/plugins/Dew21Theme/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.vscode*
+            **/dev*
