@@ -1,0 +1,13 @@
+.login-card {
+    background-color: $sw-color-brand-primary;
+    color:$sw-background-color;
+    padding:$spacer;
+
+    .card-title {
+        color:$sw-background-color;
+    }
+
+    a {
+        color:$sw-background-color;
+    }
+}

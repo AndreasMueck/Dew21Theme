@@ -26,11 +26,19 @@ footer {
     align-items: center;
 }
 
-.footer-contact-hotline a, .footer-link, footer a {
+.footer-contact-hotline a, .footer-link {
     &:hover {
         color:$sw-color-brand-secondary;
     }
 }
+
+.footer-service-menu-link {
+    &:hover {
+        text-decoration:underline;
+    }
+}
+
+
 
 .footer-link-item {
     padding-bottom:0;
